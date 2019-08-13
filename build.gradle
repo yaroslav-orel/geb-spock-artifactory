@@ -1,0 +1,36 @@
+plugins {
+    id 'groovy'
+    id "com.energizedwork.webdriver-binaries" version "1.4"
+}
+
+group 'com.github.yaroslav-orel'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.codehaus.groovy:groovy-all:2.5.8'
+    implementation 'org.gebish:geb-spock:3.0.1'
+    implementation "org.seleniumhq.selenium:selenium-support:3.141.59"
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
+    implementation group: 'io.rest-assured', name: 'rest-assured', version: '4.0.0'
+
+    testImplementation "org.spockframework:spock-core:1.3-groovy-2.5"
+}
+
+test{
+    testLogging {
+        outputs.upToDateWhen {false}
+        showStandardStreams = true
+    }
+}
+
+webdriverBinaries{
+    chromedriver '76.0.3809.68'
+}
+
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
