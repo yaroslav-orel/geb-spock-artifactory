@@ -6,6 +6,10 @@ waiting {
     retryInterval = 0.5
 }
 
+templateOptions{
+    wait = true
+}
+
 baseUrl="http://localhost:8081/artifactory/"
 baseNavigatorWaiting = true
 requirePageAtCheckers = true

@@ -18,7 +18,7 @@ class QuickSearchPage extends Page {
     }
 
     def getSearchResultsSummary(){
-        waitFor { resultsCounter.displayed }
+        waitFor {resultsCounter.text().contains("Items")}
         resultsCounter.text()
     }
 

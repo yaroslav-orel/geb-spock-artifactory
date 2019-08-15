@@ -21,7 +21,6 @@ class LoginPage extends Page {
     }
 
     def getErrorMessage(){
-        waitFor { errorMsg.displayed }
         errorMsg.text()
     }
 }
