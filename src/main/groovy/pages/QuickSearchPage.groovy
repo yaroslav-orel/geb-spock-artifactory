@@ -3,7 +3,7 @@ package pages
 import geb.Page
 
 class QuickSearchPage extends Page {
-    static url = "artifactory/webapp/#/search/quick/"
+    static url = "webapp/#/search/quick/"
     static at = { searchButton.displayed }
 
     static content = {

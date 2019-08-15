@@ -6,7 +6,7 @@ waiting {
     retryInterval = 0.5
 }
 
-baseUrl="http://localhost:8081/"
+baseUrl="http://localhost:8081/artifactory/"
 baseNavigatorWaiting = true
 requirePageAtCheckers = true
 atCheckWaiting = true

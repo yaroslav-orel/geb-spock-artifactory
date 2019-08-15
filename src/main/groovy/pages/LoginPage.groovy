@@ -4,7 +4,7 @@ import geb.Page
 
 class LoginPage extends Page {
 
-    static url = "artifactory/webapp/#/login"
+    static url = "webapp/#/login"
     static at = { username.displayed }
 
     static content = {
