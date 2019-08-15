@@ -9,7 +9,6 @@ import utils.RestAssuredHelper
 
 class QuickSearchSpec extends GebSpec {
 
-    @Shared QuickSearchPage quickSearchPage = browser.page(QuickSearchPage)
     @Shared ConfigObject config = new ConfigReader().getAppConfig()
 
     def setupSpec(){
@@ -28,17 +27,17 @@ class QuickSearchSpec extends GebSpec {
 
     def "user can find artifact using quick search"() {
         when: "user searches using correct artifact name"
-        quickSearchPage.searchArtifact("important-memo.txt")
+        searchArtifact("important-memo.txt")
 
         then: "artifact appears in search results"
-        assert quickSearchPage.getSearchResultsSummary().contains("1 Items")
+        assert getSearchResultsSummary().contains("1 Items")
     }
 
     def "user is shown empty results searching for non-existing artifact"() {
         when: "user searches using non-existing artifact name"
-        quickSearchPage.searchArtifact("not-here.txt")
+        searchArtifact("not-here.txt")
 
         then: "search results show 0 items"
-        assert quickSearchPage.getSearchResultsSummary().contains("0 Items")
+        assert getSearchResultsSummary().contains("0 Items")
     }
 }
