@@ -1,6 +1,5 @@
 plugins {
     id 'groovy'
-    id "com.energizedwork.webdriver-binaries" version "1.4"
 }
 
 group 'com.github.yaroslav-orel'
@@ -27,11 +26,6 @@ test{
         showStandardStreams = true
     }
 }
-
-webdriverBinaries{
-    chromedriver '76.0.3809.68'
-}
-
 
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
