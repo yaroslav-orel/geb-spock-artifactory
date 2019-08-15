@@ -28,6 +28,6 @@ class LoginSpec extends GebSpec {
         authenticate("admin1", "Password1")
 
         then: "user is shown error message"
-        assert getErrorMessage() == 'Username or password are incorrect'
+        getErrorMessage() == 'Username or password are incorrect'
     }
 }

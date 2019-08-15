@@ -30,7 +30,7 @@ class QuickSearchSpec extends GebSpec {
         searchArtifact("important-memo.txt")
 
         then: "artifact appears in search results"
-        assert getSearchResultsSummary().contains("1 Items")
+        getSearchResultsSummary().contains("1 Items")
     }
 
     def "user is shown empty results searching for non-existing artifact"() {
@@ -38,6 +38,6 @@ class QuickSearchSpec extends GebSpec {
         searchArtifact("not-here.txt")
 
         then: "search results show 0 items"
-        assert getSearchResultsSummary().contains("0 Items")
+        getSearchResultsSummary().contains("0 Items")
     }
 }
