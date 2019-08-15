@@ -2,7 +2,7 @@
 
 ## Prerequisites: 
 - Java 8+
-- Chrome 76
+- Chrome 60+
 
 ## Set up environment:
 - Download Artifactory-oss

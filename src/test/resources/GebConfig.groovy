@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager
 import org.openqa.selenium.chrome.ChromeDriver
 
 waiting {
@@ -10,4 +11,7 @@ baseNavigatorWaiting = true
 requirePageAtCheckers = true
 atCheckWaiting = true
 
-driver = { new ChromeDriver() }
+driver = {
+    WebDriverManager.chromedriver().setup()
+    new ChromeDriver()
+}
