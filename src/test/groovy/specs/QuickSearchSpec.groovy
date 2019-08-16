@@ -16,24 +16,25 @@ class QuickSearchSpec extends BaseSpec {
         ArtifactManager.deleteArtifact(config.artifact.name, config.artifact.repo)
     }
 
-    def setup(){
-        given: "user is on Quick Search page"
-        to QuickSearchPage
-    }
-
     def "user can find artifact using quick search"() {
-        when: "user searches using correct artifact name"
+        given: "User is on Quick Search page"
+        to QuickSearchPage
+
+        when: "User searches using correct artifact name"
         searchArtifact("important-memo.txt")
 
-        then: "artifact appears in search results"
+        then: "Artifact appears in search results"
         getSearchResultsSummary().contains("1 Items")
     }
 
     def "user is shown empty results searching for non-existing artifact"() {
-        when: "user searches using non-existing artifact name"
+        given: "User is on Quick Search page"
+        to QuickSearchPage
+
+        when: "User searches using non-existing artifact name"
         searchArtifact("not-here.txt")
 
-        then: "search results show 0 items"
+        then: "Search results show 0 items"
         getSearchResultsSummary().contains("0 Items")
     }
 }
