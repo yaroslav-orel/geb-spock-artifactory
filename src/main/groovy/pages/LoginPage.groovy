@@ -1,6 +1,8 @@
 package pages
 
 import geb.Page
+import geb.module.PasswordInput
+import geb.module.TextInput
 
 class LoginPage extends Page {
 
@@ -8,15 +10,15 @@ class LoginPage extends Page {
     static at = { usernameInput.displayed }
 
     static content = {
-        usernameInput { $("#user") }
-        passwordInput { $("#password") }
+        usernameInput { $("#user").module(TextInput) }
+        passwordInput { $("#password").module(PasswordInput) }
         loginButton { $("#login") }
         errorMessageLabel { $("[ng-bind = 'Login.errorMessage']") }
     }
 
     def authenticate(username, password){
-        usernameInput.value(username)
-        passwordInput.value(password)
+        usernameInput = username
+        passwordInput = password
         loginButton.click()
     }
 
