@@ -17,5 +17,7 @@ atCheckWaiting = true
 
 driver = {
     WebDriverManager.chromedriver().setup()
-    new ChromeDriver()
+    def chrome = new ChromeDriver()
+    chrome.manage().window().maximize()
+    chrome
 }
