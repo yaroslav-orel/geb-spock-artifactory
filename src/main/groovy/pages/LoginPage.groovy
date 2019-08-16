@@ -5,22 +5,22 @@ import geb.Page
 class LoginPage extends Page {
 
     static url = "webapp/#/login"
-    static at = { username.displayed }
+    static at = { usernameInput.displayed }
 
     static content = {
-        username { $("#user") }
-        password { $("#password") }
-        login { $("#login") }
-        errorMsg { $("[ng-bind = 'Login.errorMessage']") }
+        usernameInput { $("#user") }
+        passwordInput { $("#password") }
+        loginButton { $("#login") }
+        errorMessageLabel { $("[ng-bind = 'Login.errorMessage']") }
     }
 
-    def authenticate(user, pass){
-        username.value(user)
-        password.value(pass)
-        login.click()
+    def authenticate(username, password){
+        usernameInput.value(username)
+        passwordInput.value(password)
+        loginButton.click()
     }
 
-    def getErrorMessage(){
-        errorMsg.text()
+    def getLoginErrorMessageText(){
+        errorMessageLabel.text()
     }
 }

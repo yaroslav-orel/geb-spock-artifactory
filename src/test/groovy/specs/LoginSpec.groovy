@@ -25,6 +25,6 @@ class LoginSpec extends BaseSpec {
         authenticate("admin1", "Password1")
 
         then: "User is shown error message"
-        getErrorMessage() == 'Username or password are incorrect'
+        getLoginErrorMessageText() == 'Username or password are incorrect'
     }
 }

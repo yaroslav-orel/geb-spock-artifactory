@@ -7,19 +7,19 @@ class QuickSearchPage extends Page {
     static at = { searchButton.displayed }
 
     static content = {
-        seachValue { $("#criterion-string-0") }
+        seachValueInput { $("#criterion-string-0") }
         searchButton { $("[ng-click='queryMaker.search()']") }
-        resultsCounter { $("[class='search-results-title ng-binding']") }
+        searchResultsCounterLabel { $("[class='search-results-title ng-binding']") }
     }
 
     def searchArtifact(name){
-        seachValue.value(name)
+        seachValueInput.value(name)
         searchButton.click()
     }
 
     def getSearchResultsSummary(){
-        waitFor {resultsCounter.text().contains("Items")}
-        resultsCounter.text()
+        waitFor {searchResultsCounterLabel.text().contains("Items")}
+        searchResultsCounterLabel.text()
     }
 
 }
