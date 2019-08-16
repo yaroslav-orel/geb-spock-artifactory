@@ -1,15 +1,11 @@
 package specs
 
-import geb.spock.GebSpec
+
 import pages.QuickSearchPage
-import spock.lang.Shared
 import utils.ArtifactManager
-import utils.ConfigReader
 import utils.RestAssuredHelper
 
-class QuickSearchSpec extends GebSpec {
-
-    @Shared ConfigObject config = new ConfigReader().getAppConfig()
+class QuickSearchSpec extends BaseSpec {
 
     def setupSpec(){
         RestAssuredHelper.configureRestAssured(browser, config)

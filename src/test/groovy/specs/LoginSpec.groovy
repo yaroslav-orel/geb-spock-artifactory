@@ -1,14 +1,10 @@
 package specs
 
-import geb.spock.GebSpec
+
 import pages.HomePage
 import pages.LoginPage
-import spock.lang.Shared
-import utils.ConfigReader
 
-class LoginSpec extends GebSpec {
-
-    @Shared ConfigObject config = new ConfigReader().getAppConfig()
+class LoginSpec extends BaseSpec {
 
     def setup(){
         given: "user is on Login page"
