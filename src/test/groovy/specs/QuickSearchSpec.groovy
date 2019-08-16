@@ -16,7 +16,7 @@ class QuickSearchSpec extends BaseSpec {
         ArtifactManager.deleteArtifact(config.artifact.name, config.artifact.repo)
     }
 
-    def "user can find artifact using quick search"() {
+    def "User can find artifact using quick search"() {
         given: "User is on Quick Search page"
         to QuickSearchPage
 
@@ -28,7 +28,7 @@ class QuickSearchSpec extends BaseSpec {
         getFoundArtifactRowsCount() == 1
     }
 
-    def "user is shown empty results searching for non-existing artifact"() {
+    def "User is shown empty results searching for non-existing artifact"() {
         given: "User is on Quick Search page"
         to QuickSearchPage
 

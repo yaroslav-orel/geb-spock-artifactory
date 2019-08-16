@@ -6,7 +6,7 @@ import pages.LoginPage
 
 class LoginSpec extends BaseSpec {
 
-    def "user with valid creds should be authenticated"() {
+    def "User with valid creds should be authenticated"() {
         given: "User is on Login page"
         to LoginPage
 
