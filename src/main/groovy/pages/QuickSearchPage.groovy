@@ -11,6 +11,9 @@ class QuickSearchPage extends Page {
         seachValueInput { $("#criterion-string-0").module(TextInput) }
         searchButton { $("[ng-click='queryMaker.search()']") }
         searchResultsCounterLabel { $("[class='search-results-title ng-binding']") }
+        foundArtifactRows(wait: false, required: false) {
+            $("[class*='ui-grid-render-container-body'] [ng-if='!row.entity._emptyRow']")
+        }
     }
 
     def searchArtifact(name){
@@ -21,6 +24,10 @@ class QuickSearchPage extends Page {
     def getSearchResultsSummary(){
         waitFor {searchResultsCounterLabel.text().contains("Items")}
         searchResultsCounterLabel.text()
+    }
+
+    def getFoundArtifactRowsCount(){
+        foundArtifactRows.size()
     }
 
 }

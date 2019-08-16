@@ -25,6 +25,7 @@ class QuickSearchSpec extends BaseSpec {
 
         then: "Artifact appears in search results"
         getSearchResultsSummary().contains("1 Items")
+        getFoundArtifactRowsCount() == 1
     }
 
     def "user is shown empty results searching for non-existing artifact"() {
@@ -34,7 +35,8 @@ class QuickSearchSpec extends BaseSpec {
         when: "User searches using non-existing artifact name"
         searchArtifact("not-here.txt")
 
-        then: "Search results show 0 items"
+        then: "Nothing appears in search results"
         getSearchResultsSummary().contains("0 Items")
+        getFoundArtifactRowsCount() == 0
     }
 }
