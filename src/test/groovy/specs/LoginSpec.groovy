@@ -18,7 +18,7 @@ class LoginSpec extends BaseSpec {
     }
 
     def "User with invalid creds should not be authenticated"() {
-        given: "user is on Login page"
+        given: "User is on Login page"
         to LoginPage
 
         when: "User enters invalid credentials"
