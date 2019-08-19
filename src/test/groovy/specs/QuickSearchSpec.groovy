@@ -21,11 +21,12 @@ class QuickSearchSpec extends BaseSpec {
         to QuickSearchPage
 
         when: "User searches using correct artifact name"
-        searchArtifact("important-memo.txt")
+        searchArtifact(config.artifact.name)
 
-        then: "Artifact appears in search results"
+        then: "Searched artifact appears in search results"
         getSearchResultsSummary().contains("1 Items")
-        getFoundArtifactRowsCount() == 1
+        foundArtifactRows.size() == 1
+        foundArtifactRows[0].nameLabel.text() == config.artifact.name
     }
 
     def "User is shown empty results searching for non-existing artifact"() {
@@ -37,6 +38,6 @@ class QuickSearchSpec extends BaseSpec {
 
         then: "Nothing appears in search results"
         getSearchResultsSummary().contains("0 Items")
-        getFoundArtifactRowsCount() == 0
+        foundArtifactRows.size() == 0
     }
 }

@@ -2,6 +2,7 @@ package pages
 
 import geb.Page
 import geb.module.TextInput
+import modules.SearchResultRow
 
 class QuickSearchPage extends Page {
     static url = "webapp/#/search/quick/"
@@ -13,6 +14,7 @@ class QuickSearchPage extends Page {
         searchResultsCounterLabel { $("[class='search-results-title ng-binding']") }
         foundArtifactRows(wait: false, required: false) {
             $("[class*='ui-grid-render-container-body'] [ng-if='!row.entity._emptyRow']")
+                    .moduleList(SearchResultRow)
         }
     }
 
@@ -24,10 +26,6 @@ class QuickSearchPage extends Page {
     def getSearchResultsSummary(){
         waitFor {searchResultsCounterLabel.text().contains("Items")}
         searchResultsCounterLabel.text()
-    }
-
-    def getFoundArtifactRowsCount(){
-        foundArtifactRows.size()
     }
 
 }
